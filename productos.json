@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "💛Kit helado capilar",
+    "descripcion": "Champú -Acondicionador mascarilla y aceite capilar",
+    "precio": "30$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795303797/kpouxgcfuqw4ykcwioqd.jpg"
+  },
+  {
     "nombre": "kit Neslar Explosión Tropical",
     "descripcion": "💓Champu, mascarilla y perfume capilar",
     "precio": "28$",
