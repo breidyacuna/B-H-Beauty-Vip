@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Duo Milagros de Romero",
+    "descripcion": "Champú y Acondicionador 500ml",
+    "precio": "28$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795304455/otyc30rb9g98d8bucpar.jpg"
+  },
+  {
     "nombre": "Duo Milagros",
     "descripcion": "Champú y Acondicionador 500 ML",
     "precio": "25$",
