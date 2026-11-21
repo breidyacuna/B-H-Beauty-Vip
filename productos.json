@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "Kit BBK \"I Love My Curls",
+    "descripcion": "Rutina para rizos definidos: Champú sin sal (300ml), Acondicionador (300ml) y Crema para peinar (240ml).",
+    "precio": "Consultar Precio",
+    "imagen": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "nombre": "Kit BBK \"Argan Glow\"",
+    "descripcion": "Rutina de nutrición y brillo con Aceite de Argán para cabello seco u opaco (Champú, Acondicionador y Crema).",
+    "precio": "Consultar Precio",
+    "imagen": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "nombre": "Kit Completo HD Sábila",
+    "descripcion": "Fortificante con Pro-Vitamina B5 para cabello débil: Champú (300ml), Crema para peinar y Baño de crema.",
+    "precio": "Consultar Precio",
+    "imagen": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "nombre": "Bengreg Liso Orgánico",
+    "descripcion": "Lactoplastia y Nanoplastia profesional para un alisado instantáneo. Presentaciones de 90ml, 230ml y 430ml.",
+    "precio": "Consultar Precio",
+    "imagen": "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=600&q=80"
+  }
+]
