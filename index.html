@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&H Beauty | Cuidado Capilar, Bienestar y Club VIP</title>
+    <style>
+        :root {
+            --color-principal: #1e1e24;
+            --color-acento: #d81b60;
+            --color-acento-hover: #ad1457;
+            --color-whatsapp: #25D366;
+            --color-whatsapp-hover: #1ebe57;
+            --color-fondo: #fff5f8;
+            --color-texto: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        /* Menú de Navegación */
+        header {
+            background-color: white;
+            color: var(--color-principal);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(216, 27, 96, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--color-acento);
+        }
+
+        .logo span {
+            font-size: 0.75rem;
+            display: block;
+            color: #718096;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--color-principal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-acento);
+        }
+
+        /* Banner Principal */
+        .hero {
+            background: linear-gradient(135deg, #2d142c 0%, #801336 50%, #d81b60 100%);
+            color: white;
+            text-align: center;
+            padding: 85px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            color: #f7fafc;
+        }
+
+        /* Contenedores y Títulos */
+        .contenedor {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--color-principal);
+            font-weight: 800;
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.05rem;
+        }
+
+        /* Catálogo de Productos */
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta-producto {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #fed7e2;
+            position: relative;
+        }
+
+        .tarjeta-producto:hover {
+            transform: translateY(-6px);
+        }
+
+        .tarjeta-producto img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center;
+            background-color: #fce7f3;
+        }
+
+        .info-producto {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .info-producto h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--color-principal);
+        }
+
+        .info-producto p {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 15px;
+        }
+
+        .precio {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--color-acento);
+            display: block;
+        }
+
+        .opcion-cuota {
+            font-size: 0.85rem;
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Controles de edición dentro de cada tarjeta (solo visibles en modo admin) */
+        .controles-tarjeta-admin {
+            display: none;
+            background: #2d3748;
+            padding: 8px;
+            justify-content: space-between;
+            gap: 6px;
+        }
+
+        body.modo-admin .controles-tarjeta-admin {
+            display: flex;
+        }
+
+        .btn-mini {
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .btn-editar { background: #ecc94b; color: #1a202c; }
+        .btn-eliminar { background: #f56565; color: white; }
+
+        /* Sección: Niveles y Puntos */
+        .seccion-niveles {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+            padding: 70px 20px;
+            margin-top: 60px;
+            border-top: 3px solid #fed7e2;
+            border-bottom: 3px solid #fed7e2;
+        }
+
+        .grid-niveles {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .tarjeta-nivel {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(216, 27, 96, 0.08);
+            border: 2px solid #fbb6ce;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tarjeta-nivel.destacado {
+            border: 3px solid var(--color-acento);
+            transform: scale(1.03);
+        }
+
+        .etiqueta-popular {
+            background: var(--color-acento);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta-nivel h3 {
+            color: var(--color-principal);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo-nivel {
+            font-size: 0.9rem;
+            color: #e53e3e;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .puntos-requeridos {
+            background: #fff5f8;
+            color: var(--color-acento);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px dashed var(--color-acento);
+        }
+
+        .precio-nivel {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--color-acento);
+            margin: 10px 0;
+        }
+
+        .lista-beneficios {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .lista-beneficios li {
+            margin-bottom: 12px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .lista-beneficios li::before {
+            content: "✓";
+            color: var(--color-acento);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Sección: Crear Usuario */
+        .seccion-usuario {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            max-width: 700px;
+            margin: 0 auto;
+            border: 2px solid #fed7e2;
+        }
+
+        .form-grupo {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--color-principal);
+        }
+
+        .form-grupo input, .form-grupo textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f7fafc;
+        }
+
+        .form-grupo input:focus, .form-grupo textarea:focus {
+            outline: none;
+            border-color: var(--color-acento);
+            background: white;
+        }
+
+        /* Pagos */
+        .grid-pagos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .caja-pago {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 6px solid var(--color-acento);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        }
+
+        .caja-pago.cuotas { border-left-color: #27ae60; }
+
+        .datos-bancarios {
+            background: #fff5f8;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            margin: 15px 0;
+            border: 1px dashed #fbb6ce;
+        }
+
+        /* Botones */
+        .btn-whatsapp {
+            display: block;
+            text-align: center;
+            background-color: var(--color-whatsapp);
+            color: white;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover { background-color: var(--color-whatsapp-hover); }
+
+        .btn-acento {
+            display: block;
+            text-align: center;
+            background-color: var(--color-acento);
+            color: white;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-acento:hover { background-color: var(--color-acento-hover); }
+        .btn-acento:disabled { background-color: #a0aec0; cursor: not-allowed; }
+
+        /* Botón Flotante WhatsApp */
+        .whatsapp-flotante {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--color-whatsapp);
+            color: white;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 950;
+        }
+
+        /* Botón Flotante Administradora */
+        .btn-admin-flotante {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: var(--color-principal);
+            color: white;
+            border: 2px solid var(--color-acento);
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            z-index: 950;
+            transition: all 0.3s;
+        }
+
+        .btn-admin-flotante:hover {
+            background-color: var(--color-acento);
+        }
+
+        /* Panel de Administración Visual (Modal / Cajón) */
+        .panel-admin {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .panel-admin.abierto {
+            display: flex;
+        }
+
+        .contenido-panel {
+            background: white;
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .cerrar-panel {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #718096;
+        }
+
+        .vista-previa-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: none;
+            border: 2px dashed var(--color-acento);
+        }
+
+        .barra-herramientas-admin {
+            display: none;
+            background: #1e1e24;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border: 2px solid var(--color-acento);
+        }
+
+        body.modo-admin .barra-herramientas-admin {
+            display: flex;
+        }
+
+        .btn-secundario {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-secundario:hover { background: #2b6cb0; }
+
+        .estado-sync {
+            background: #edf2f7;
+            color: #2d3748;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--color-acento);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-principal);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--color-acento);
+        }
+
+        .versiculo {
+            font-style: italic;
+            color: #fed7e2;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 12px; }
+            .tarjeta-nivel.destacado { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú Superior -->
+    <header>
+        <div class="logo">
+            B&H BEAUTY
+            <span>Mini Market Hadasa</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Catálogo</a></li>
+                <li><a href="#niveles">Niveles y Puntos</a></li>
+                <li><a href="#mi-cuenta">Mi Cuenta</a></li>
+                <li><a href="#pagos">Pagos y Cuotas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section id="inicio" class="hero">
+        <h1>Lo Mejor para el Cuidado de tu Cabello</h1>
+        <p>Acumula 50 puntos por cada compra en el Club B&H, escala de nivel y disfruta de facilidades de pago protegidas y seguras.</p>
+        <a href="https://wa.me/584167172744?text=Hola%20Breidy,%20vengo%20de%20la%20web%20y%20quiero%20registrarme%20en%20el%20Club%20B%26H" target="_blank" class="btn-whatsapp" style="display: inline-block; padding: 12px 30px; font-size: 1.1rem;">Únete al Club por WhatsApp</a>
+    </section>
+
+    <!-- Catálogo de Productos Dinámico -->
+    <main id="productos" class="contenedor">
+        <h2 class="titulo-seccion">Catálogo de Productos</h2>
+        <p class="subtitulo-seccion">Cada compra que realices equivale a <strong>50 puntos</strong> para ascender rápidamente en tu membresía.</p>
+
+        <!-- Barra de control solo visible cuando Breidy activa el Modo Administradora -->
+        <div class="barra-herramientas-admin">
+            <div>
+                <strong>👑 Modo Creadora Activo (Nube + GitHub):</strong> Todo lo que subas se publica para todos tus clientes.
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="btn-acento" style="width: auto; padding: 10px 18px;" onclick="abrirFormularioProducto()">+ Subir Nuevo Producto y Foto</button>
+                <button class="btn-secundario" onclick="abrirConfigNube()">⚙️ Conectar GitHub / Nube</button>
+                <button class="btn-mini btn-eliminar" style="padding: 10px 14px;" onclick="cerrarModoAdmin()">Salir de Edición</button>
+            </div>
+        </div>
+        
+        <!-- Aquí se cargan automáticamente todos los productos desde la nube -->
+        <div id="contenedor-catalogo" class="grid-productos">
+            <p style="text-align: center; grid-column: 1 / -1; color: #718096;">Cargando catálogo actualizado...</p>
+        </div>
+    </main>
+
+    <!-- Sección: Niveles, Puntos y Protección de Ingresos -->
+    <section id="niveles" class="seccion-niveles">
+        <h2 class="titulo-seccion">Niveles Seguros y Sistema de Puntos</h2>
+        <p class="subtitulo-seccion">Esquema optimizado para garantizar tu liquidez financiera mientras premiamos la fidelidad de nuestras clientas.</p>
+        
+        <div class="grid-niveles">
+            <div class="tarjeta-nivel">
+                <div>
+                    <h3>Nivel 1: Esencia Natural</h3>
+                    <p class="subtitulo-nivel">Sistema Apartado Protegido</p>
+                    <div class="puntos-requeridos">Mínimo: 100 Puntos</div>
+                    <div class="precio-nivel">50% Inicial</div>
+                    <ul class="lista-beneficios">
+                        <li>Cada compra otorga <strong>50 puntos</strong>.</li>
+                        <li>Cancelas 50% para apartar tu combo o producto.</li>
+                        <li><strong>Entrega 100% segura:</strong> El producto se entrega al completar el pago total.</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/584167172744?text=Hola,%20quiero%20iniciar%20en%20el%20Nivel%201%20Esencia%20Natural%20(100%20puntos)" target="_blank" class="btn-acento">Elegir Nivel 1</a>
+            </div>
+
+            <div class="tarjeta-nivel destacado">
+                <div>
+                    <span class="etiqueta-popular">Nivel Frecuente</span>
+                    <h3>Nivel 2: Ritual Hadasa</h3>
+                    <p class="subtitulo-nivel">Entrega Inmediata + 2 Cuotas</p>
+                    <div class="puntos-requeridos">Mínimo: 250 Puntos</div>
+                    <div class="precio-nivel">50% Inicial</div>
+                    <ul class="lista-beneficios">
+                        <li>Cada compra otorga <strong>50 puntos</strong>.</li>
+                        <li>Pagas el 50% inicial y <strong>recibes tu pedido de inmediato</strong>.</li>
+                        <li>El saldo restante se divide en <strong>dos cuotas quincenales</strong> verificadas.</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/584167172744?text=Hola,%20alcancé%20el%20Nivel%202%20Ritual%20Hadasa%20(250%20puntos)" target="_blank" class="btn-whatsapp">Elegir Nivel 2</a>
+            </div>
+
+            <div class="tarjeta-nivel">
+                <div>
+                    <h3>Nivel 3: Transformación Total</h3>
+                    <p class="subtitulo-nivel">VIP Crédito Protegido</p>
+                    <div class="puntos-requeridos">Mínimo: 450 Puntos</div>
+                    <div class="precio-nivel">40% Inicial</div>
+                    <ul class="lista-beneficios">
+                        <li>Cada compra otorga <strong>50 puntos</strong>.</li>
+                        <li>Requiere un pago inicial del <strong>40%</strong> con entrega inmediata.</li>
+                        <li>Saldo fraccionado en <strong>tres cuotas</strong> exclusivas para clientas VIP.</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/584167172744?text=Hola,%20alcancé%20el%20Nivel%203%20Transformación%20Total%20(450%20puntos)" target="_blank" class="btn-acento">Elegir Nivel 3</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apartado: Crear Usuario -->
+    <section id="mi-cuenta" class="contenedor">
+        <h2 class="titulo-seccion">Regístrate en el Club B&H Beauty</h2>
+        <p class="subtitulo-seccion">Crea tu usuario para llevar el registro de tus compras y sumar tus 50 puntos por cada pedido.</p>
+
+        <div class="seccion-usuario">
+            <form onsubmit="enviarRegistroWhatsApp(event)">
+                <div class="form-grupo">
+                    <label for="reg-nombre">Nombre y Apellido:</label>
+                    <input type="text" id="reg-nombre" placeholder="Ej: María Pérez" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="reg-telefono">Número de Teléfono / WhatsApp:</label>
+                    <input type="text" id="reg-telefono" placeholder="Ej: 04121234567" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="reg-usuario">Usuario deseado:</label>
+                    <input type="text" id="reg-usuario" placeholder="Ej: mariaperez" required>
+                </div>
+                <button type="submit" class="btn-acento">Crear mi Usuario y Activar Puntos</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección: Métodos de Pago -->
+    <section id="pagos" class="contenedor">
+        <h2 class="titulo-seccion">Métodos de Pago Oficiales</h2>
+        <p class="subtitulo-seccion">Realiza tus pagos de contado o aportes de cuotas mediante nuestro Pago Móvil oficial.</p>
+
+        <div class="grid-pagos">
+            <div class="caja-pago">
+                <h3>1. Pago Móvil (Mini Market Hadasa)</h3>
+                <div class="datos-bancarios">
+                    <p><strong>Banco:</strong> 0108 (Banco Provincial)</p>
+                    <p><strong>C.I. / RIF:</strong> V-27888181</p>
+                    <p><strong>Teléfono:</strong> 0416-7172744</p>
+                </div>
+                <a href="https://wa.me/584167172744?text=Hola%20Breidy,%20aquí%20te%20envío%20el%20capture%20de%20mi%20pago%20móvil:" target="_blank" class="btn-whatsapp">Reportar Pago por WhatsApp</a>
+            </div>
+
+            <div class="caja-pago cuotas">
+                <h3>2. Control de Cuotas y Puntos</h3>
+                <div class="datos-bancarios">
+                    <p>• Guarda el capture de cada Pago Móvil que realices.</p>
+                    <p>• Escríbenos por WhatsApp para verificar tus puntos y cuotas vigentes.</p>
+                </div>
+                <a href="https://wa.me/584167172744?text=Hola%20Breidy,%20quiero%20consultar%20mis%20puntos%20y%20el%20estado%20de%20mis%20cuotas" target="_blank" class="btn-acento">Consultar mis Puntos y Cuotas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón Flotante Administradora (Esquina Inferior Izquierda) -->
+    <button class="btn-admin-flotante" onclick="verificarAccesoAdmin()">⚙️ Administrar Tienda</button>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/584167172744?text=Hola,%20vengo%20de%20la%20página%20web%20de%20B%26H%20Beauty" target="_blank" class="whatsapp-flotante" title="Chatea con nosotros">💬</a>
+
+    <!-- MODAL 1: CONFIGURACIÓN DE CONEXIÓN UNIVERSAL (GITHUB + CLOUDINARY) -->
+    <div id="modal-config" class="panel-admin">
+        <div class="contenido-panel">
+            <button class="cerrar-panel" onclick="cerrarModalConfig()">&times;</button>
+            <h3 style="color: var(--color-acento); margin-bottom: 10px; font-size: 1.4rem;">🔗 Conexión Universal a la Nube</h3>
+            <p style="font-size: 0.9rem; color: #4a5568; margin-bottom: 15px;">
+                Configura esto una sola vez en tu teléfono y en tu computadora para que tus fotos y productos se guarden en la nube sin límites y se publiquen solos en Netlify.
+            </p>
+            <form onsubmit="guardarConfigNube(event)">
+                <div class="form-grupo">
+                    <label>1. Usuario de GitHub:</label>
+                    <input type="text" id="cfg-gh-user" placeholder="Ej: breidyhadasa" required>
+                </div>
+                <div class="form-grupo">
+                    <label>2. Nombre del Repositorio en GitHub:</label>
+                    <input type="text" id="cfg-gh-repo" placeholder="Ej: bh-beauty-tienda" required>
+                </div>
+                <div class="form-grupo">
+                    <label>3. Token de Acceso de GitHub (ghp_...):</label>
+                    <input type="password" id="cfg-gh-token" placeholder="Pega aquí tu Personal Access Token" required>
+                </div>
+                <div class="form-grupo">
+                    <label>4. Cloudinary Cloud Name (Almacenamiento de fotos):</label>
+                    <input type="text" id="cfg-cloud-name" placeholder="Ej: dxyz123abc" required>
+                </div>
+                <div class="form-grupo">
+                    <label>5. Cloudinary Upload Preset (Modo Unsigned):</label>
+                    <input type="text" id="cfg-cloud-preset" placeholder="Ej: bh_beauty" required>
+                </div>
+                <button type="submit" class="btn-acento">💾 Guardar Conexión en este Dispositivo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: SUBIR / EDITAR PRODUCTOS DIRECTO A LA NUBE -->
+    <div id="modal-admin" class="panel-admin">
+        <div class="contenido-panel">
+            <button class="cerrar-panel" onclick="cerrarModal()">&times;</button>
+            <h3 id="titulo-modal" style="color: var(--color-acento); margin-bottom: 15px; font-size: 1.4rem;">Subir Nuevo Producto</h3>
+            
+            <div id="estado-subida" class="estado-sync" style="display: none;"></div>
+
+            <form onsubmit="guardarProductoEnNube(event)">
+                <input type="hidden" id="edit-index" value="-1">
+                <input type="hidden" id="imagen-actual-url" value="">
+                
+                <div class="form-grupo">
+                    <label>1. Selecciona la Foto desde tu galería o carpeta:</label>
+                    <input type="file" id="input-foto" accept="image/*" onchange="mostrarVistaPreviaLocal(event)">
+                    <img id="preview-foto" class="vista-previa-img" alt="Vista previa">
+                    <small style="color: #718096;">La foto se sube directamente a la nube (sin ocupar memoria de tu teléfono).</small>
+                </div>
+
+                <div class="form-grupo">
+                    <label>2. Nombre del Producto o Combo:</label>
+                    <input type="text" id="input-nombre" placeholder="Ej: Kit BBK I Love My Curls" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label>3. Descripción corta:</label>
+                    <textarea id="input-desc" rows="2" placeholder="Ej: Champú sin sal 300ml, Acondicionador y Crema para peinar." required></textarea>
+                </div>
+
+                <div class="form-grupo">
+                    <label>4. Precio (puedes poner monto o texto):</label>
+                    <input type="text" id="input-precio" placeholder="Ej: $18.00 o Consultar Precio" required>
+                </div>
+
+                <button type="submit" id="btn-guardar-prod" class="btn-acento">☁️ Subir Foto y Publicar en la Web</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div style="max-width: 650px; margin: 0 auto;">
+            <h4>B&H BEAUTY</h4>
+            <p>Una marca de Mini Market Hadasa</p>
+            <p>Atención personalizada y bienestar para ti.</p>
+            <div class="versiculo">
+                "Encomienda al Señor tus obras, y tus pensamientos serán afirmados." — Proverbios 16:3
+            </div>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: #cbd5e0;">&copy; 2026 Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- SISTEMA UNIVERSAL DE SINCRONIZACIÓN (GITHUB + CLOUDINARY + NETLIFY) -->
+    <script>
+        const CLAVE_ADMIN = "hadasa2026";
+        const ARCHIVO_CATALOGO = "productos.json";
+
+        // Productos iniciales de respaldo si productos.json aún está vacío
+        const productosIniciales = [
+            {
+                nombre: 'Kit BBK "I Love My Curls"',
+                descripcion: 'Rutina para rizos definidos: Champú sin sal (300ml), Acondicionador (300ml) y Crema para peinar (240ml).',
+                precio: 'Consultar Precio',
+                imagen: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                nombre: 'Kit BBK "Argan Glow"',
+                descripcion: 'Rutina de nutrición y brillo con Aceite de Argán para cabello seco u opaco (Champú, Acondicionador y Crema).',
+                precio: 'Consultar Precio',
+                imagen: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                nombre: 'Kit Completo HD Sábila',
+                descripcion: 'Fortificante con Pro-Vitamina B5 para cabello débil: Champú (300ml), Crema para peinar y Baño de crema.',
+                precio: 'Consultar Precio',
+                imagen: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                nombre: 'Bengreg Liso Orgánico',
+                descripcion: 'Lactoplastia y Nanoplastia profesional para un alisado instantáneo. Presentaciones de 90ml, 230ml y 430ml.',
+                precio: 'Consultar Precio',
+                imagen: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=600&q=80'
+            }
+        ];
+
+        let catalogo = [];
+
+        // 1. Cargar catálogo público desde productos.json alojado en Netlify/GitHub (visible para TODOS)
+        async function inicializarCatalogo() {
+            try {
+                // Evitamos caché con ?v=timestamp para que siempre cargue la última versión publicada
+                const respuesta = await fetch(`${ARCHIVO_CATALOGO}?v=${Date.now()}`);
+                if (respuesta.ok) {
+                    const datosNube = await respuesta.json();
+                    if (Array.isArray(datosNube) && datosNube.length > 0) {
+                        catalogo = datosNube;
+                    } else {
+                        catalogo = [...productosIniciales];
+                    }
+                } else {
+                    catalogo = [...productosIniciales];
+                }
+            } catch (error) {
+                catalogo = [...productosIniciales];
+            }
+            renderizarCatalogo();
+        }
+
+        // 2. Renderizar tarjetas de productos
+        function renderizarCatalogo() {
+            const contenedor = document.getElementById('contenedor-catalogo');
+            contenedor.innerHTML = '';
+
+            catalogo.forEach((prod, index) => {
+                const mensajeWa = encodeURIComponent(`Hola Breidy, me interesa el producto: ${prod.nombre} (${prod.precio}) y quiero sumar mis 50 puntos.`);
+                
+                const tarjeta = document.createElement('article');
+                tarjeta.className = 'tarjeta-producto';
+                tarjeta.innerHTML = `
+                    <div class="controles-tarjeta-admin">
+                        <button class="btn-mini btn-editar" onclick="editarProducto(${index})">✏️ Editar</button>
+                        <button class="btn-mini btn-eliminar" onclick="eliminarProductoNube(${index})">🗑️ Borrar</button>
+                    </div>
+                    <img src="${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+                    <div class="info-producto">
+                        <div>
+                            <h3>${prod.nombre}</h3>
+                            <p>${prod.descripcion}</p>
+                        </div>
+                        <div>
+                            <span class="precio">${prod.precio}</span>
+                            <span class="opcion-cuota">+50 Puntos para tu nivel</span>
+                            <a href="https://wa.me/584167172744?text=${mensajeWa}" target="_blank" class="btn-whatsapp">Pedir y Sumar Puntos</a>
+                        </div>
+                    </div>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        // 3. Acceso Administradora
+        function verificarAccesoAdmin() {
+            if (document.body.classList.contains('modo-admin')) {
+                abrirFormularioProducto();
+                return;
+            }
+            const clave = prompt("Ingresa tu clave de creadora:");
+            if (clave === CLAVE_ADMIN) {
+                document.body.classList.add('modo-admin');
+                const cfg = obtenerConfigNube();
+                if (!cfg.token || !cfg.cloudName) {
+                    alert("¡Bienvenida Breidy! Como es la primera vez en este dispositivo, conecta tus datos de GitHub y Cloudinary para que tus cambios se publiquen en toda la web.");
+                    abrirConfigNube();
+                } else {
+                    sincronizarDesdeGitHubAPI();
+                }
+            } else if (clave !== null) {
+                alert("Clave incorrecta.");
+            }
+        }
+
+        function cerrarModoAdmin() {
+            document.body.classList.remove('modo-admin');
+        }
+
+        // 4. Gestión de credenciales en el navegador de la administradora
+        function obtenerConfigNube() {
+            return {
+                user: localStorage.getItem('bh_gh_user') || '',
+                repo: localStorage.getItem('bh_gh_repo') || '',
+                token: localStorage.getItem('bh_gh_token') || '',
+                cloudName: localStorage.getItem('bh_cloud_name') || '',
+                cloudPreset: localStorage.getItem('bh_cloud_preset') || ''
+            };
+        }
+
+        function abrirConfigNube() {
+            const cfg = obtenerConfigNube();
+            document.getElementById('cfg-gh-user').value = cfg.user;
+            document.getElementById('cfg-gh-repo').value = cfg.repo;
+            document.getElementById('cfg-gh-token').value = cfg.token;
+            document.getElementById('cfg-cloud-name').value = cfg.cloudName;
+            document.getElementById('cfg-cloud-preset').value = cfg.cloudPreset;
+            document.getElementById('modal-config').classList.add('abierto');
+        }
+
+        function cerrarModalConfig() {
+            document.getElementById('modal-config').classList.remove('abierto');
+        }
+
+        async function guardarConfigNube(e) {
+            e.preventDefault();
+            localStorage.setItem('bh_gh_user', document.getElementById('cfg-gh-user').value.trim());
+            localStorage.setItem('bh_gh_repo', document.getElementById('cfg-gh-repo').value.trim());
+            localStorage.setItem('bh_gh_token', document.getElementById('cfg-gh-token').value.trim());
+            localStorage.setItem('bh_cloud_name', document.getElementById('cfg-cloud-name').value.trim());
+            localStorage.setItem('bh_cloud_preset', document.getElementById('cfg-cloud-preset').value.trim());
+            cerrarModalConfig();
+            alert("✅ Conexión guardada. Sincronizando catálogo desde GitHub...");
+            await sincronizarDesdeGitHubAPI();
+        }
+
+        // Lee siempre la última versión directa de GitHub (sin esperar caché de CDN)
+        async function sincronizarDesdeGitHubAPI() {
+            const cfg = obtenerConfigNube();
+            if (!cfg.user || !cfg.repo || !cfg.token) return;
+            try {
+                const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${ARCHIVO_CATALOGO}`, {
+                    headers: { 'Authorization': `Bearer ${cfg.token}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    const contenidoDecodificado = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+                    const lista = JSON.parse(contenidoDecodificado);
+                    if (Array.isArray(lista) && lista.length > 0) {
+                        catalogo = lista;
+                        renderizarCatalogo();
+                    }
+                }
+            } catch (err) {
+                console.warn("No se pudo leer directo de GitHub API aún:", err);
+            }
+        }
+
+        // 5. Subir imagen a Cloudinary (Almacenamiento ilimitado en nube)
+        async function subirFotoCloudinary(archivo) {
+            const cfg = obtenerConfigNube();
+            const formData = new FormData();
+            formData.append('file', archivo);
+            formData.append('upload_preset', cfg.cloudPreset);
+
+            const res = await fetch(`https://api.cloudinary.com/v1_1/${cfg.cloudName}/image/upload`, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!res.ok) {
+                throw new Error("Error subiendo la imagen a Cloudinary. Revisa tu Cloud Name y Upload Preset.");
+            }
+            const data = await res.json();
+            // Optimización automática de calidad y tamaño (f_auto, q_auto)
+            return data.secure_url.replace('/upload/', '/upload/f_auto,q_auto,w_800/');
+        }
+
+        // 6. Guardar productos.json directamente en GitHub (dispara despliegue automático en Netlify)
+        async function guardarCatalogoEnGitHub(nuevoCatalogo, mensajeCommit) {
+            const cfg = obtenerConfigNube();
+            if (!cfg.user || !cfg.repo || !cfg.token) {
+                throw new Error("Falta configurar tu conexión de GitHub.");
+            }
+
+            const urlApi = `https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${ARCHIVO_CATALOGO}`;
+            
+            // Obtener el SHA actual del archivo en GitHub si existe
+            let shaActual = null;
+            const resGet = await fetch(urlApi, {
+                headers: { 'Authorization': `Bearer ${cfg.token}` }
+            });
+            if (resGet.ok) {
+                const fileData = await resGet.json();
+                shaActual = fileData.sha;
+            }
+
+            const jsonTexto = JSON.stringify(nuevoCatalogo, null, 2);
+            const base64UTF8 = btoa(unescape(encodeURIComponent(jsonTexto)));
+
+            const bodyPayload = {
+                message: mensajeCommit,
+                content: base64UTF8
+            };
+            if (shaActual) bodyPayload.sha = shaActual;
+
+            const resPut = await fetch(urlApi, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${cfg.token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bodyPayload)
+            });
+
+            if (!resPut.ok) {
+                const errData = await resPut.json();
+                throw new Error(`Error al guardar en GitHub: ${errData.message}`);
+            }
+        }
+
+        // 7. Controles del Formulario Modal
+        function abrirFormularioProducto() {
+            const cfg = obtenerConfigNube();
+            if (!cfg.token || !cfg.cloudName) {
+                abrirConfigNube();
+                return;
+            }
+            document.getElementById('titulo-modal').innerText = "Subir Nuevo Producto y Foto";
+            document.getElementById('edit-index').value = "-1";
+            document.getElementById('imagen-actual-url').value = "";
+            document.getElementById('input-foto').value = "";
+            document.getElementById('input-nombre').value = "";
+            document.getElementById('input-desc').value = "";
+            document.getElementById('input-precio').value = "";
+            document.getElementById('preview-foto').style.display = "none";
+            document.getElementById('estado-subida').style.display = "none";
+            document.getElementById('modal-admin').classList.add('abierto');
+        }
+
+        function editarProducto(index) {
+            const prod = catalogo[index];
+            document.getElementById('titulo-modal').innerText = "Editar Producto";
+            document.getElementById('edit-index').value = index;
+            document.getElementById('imagen-actual-url').value = prod.imagen;
+            document.getElementById('input-foto').value = "";
+            document.getElementById('input-nombre').value = prod.nombre;
+            document.getElementById('input-desc').value = prod.descripcion;
+            document.getElementById('input-precio').value = prod.precio;
+            
+            const preview = document.getElementById('preview-foto');
+            preview.src = prod.imagen;
+            preview.style.display = "block";
+            document.getElementById('estado-subida').style.display = "none";
+            document.getElementById('modal-admin').classList.add('abierto');
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal-admin').classList.remove('abierto');
+        }
+
+        function mostrarVistaPreviaLocal(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const preview = document.getElementById('preview-foto');
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+        }
+
+        async function guardarProductoEnNube(event) {
+            event.preventDefault();
+            const btn = document.getElementById('btn-guardar-prod');
+            const estado = document.getElementById('estado-subida');
+            
+            const index = parseInt(document.getElementById('edit-index').value, 10);
+            const fileInput = document.getElementById('input-foto');
+            let imagenUrl = document.getElementById('imagen-actual-url').value;
+            const nombre = document.getElementById('input-nombre').value.trim();
+            const descripcion = document.getElementById('input-desc').value.trim();
+            const precio = document.getElementById('input-precio').value.trim();
+
+            if (index === -1 && fileInput.files.length === 0) {
+                alert("Por favor selecciona una foto para el producto.");
+                return;
+            }
+
+            try {
+                btn.disabled = true;
+                estado.style.display = "block";
+
+                if (fileInput.files.length > 0) {
+                    estado.innerText = "⏳ Subiendo foto a la nube (Cloudinary)...";
+                    imagenUrl = await subirFotoCloudinary(fileInput.files[0]);
+                }
+
+                estado.innerText = "⏳ Guardando catálogo en GitHub para publicar en Netlify...";
+                const nuevoCatalogo = [...catalogo];
+                const itemProducto = { nombre, descripcion, precio, imagen: imagenUrl };
+
+                if (index === -1) {
+                    nuevoCatalogo.unshift(itemProducto);
+                } else {
+                    nuevoCatalogo[index] = itemProducto;
+                }
+
+                await guardarCatalogoEnGitHub(nuevoCatalogo, `Actualización de catálogo: ${nombre}`);
+                
+                catalogo = nuevoCatalogo;
+                renderizarCatalogo();
+                cerrarModal();
+                alert("✅ ¡Listo! El producto se guardó en la nube y Netlify actualizará la página pública en unos 20 segundos.");
+            } catch (error) {
+                estado.innerText = "❌ " + error.message;
+                alert(error.message);
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        async function eliminarProductoNube(index) {
+            const prod = catalogo[index];
+            if (!confirm(`¿Seguro que deseas eliminar "${prod.nombre}" de la tienda pública?`)) return;
+
+            try {
+                const nuevoCatalogo = catalogo.filter((_, i) => i !== index);
+                await guardarCatalogoEnGitHub(nuevoCatalogo, `Producto eliminado: ${prod.nombre}`);
+                catalogo = nuevoCatalogo;
+                renderizarCatalogo();
+                alert("🗑️ Producto eliminado de la nube. Netlify actualizará la web en unos segundos.");
+            } catch (error) {
+                alert("❌ Error al eliminar: " + error.message);
+            }
+        }
+
+        // Registro de clientas hacia WhatsApp
+        function enviarRegistroWhatsApp(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('reg-nombre').value.trim();
+            const telefono = document.getElementById('reg-telefono').value.trim();
+            const usuario = document.getElementById('reg-usuario').value.trim();
+            const texto = encodeURIComponent(`Hola Breidy, me registré en la web de B&H Beauty:\n• Nombre: ${nombre}\n• Teléfono: ${telefono}\n• Usuario: ${usuario}\nQuiero activar mis puntos del Club.`);
+            window.open(`https://wa.me/584167172744?text=${texto}`, '_blank');
+        }
+
+        // Iniciar al cargar la página
+        inicializarCatalogo();
+    </script>
+</body>
+</html>
