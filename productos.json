@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Kit Neslar 500ml",
+    "descripcion": "💛Champu, mascarilla y perfume capilar.",
+    "precio": "28$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795303332/dkqzbkn45drvmhqj1khn.jpg"
+  },
+  {
     "nombre": "Kit de Neslar 500ml",
     "descripcion": "🤎Champú, mascarilla y perfume capilar",
     "precio": "28$",
