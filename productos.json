@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Crema Nivea",
+    "descripcion": "Hidrata y nutre",
+    "precio": "12$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795369523/wv9hqhnxkh9jt7s0ixsu.jpg"
+  },
+  {
     "nombre": "Kit Capilar de ANGELUZ de Cebolla y Biotina",
     "descripcion": "💓Champú, Acondicionador, Repolizador capilar y bioterapia capilar",
     "precio": "30$",
