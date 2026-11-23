@@ -824,7 +824,7 @@
     <!-- SISTEMA UNIVERSAL DE SINCRONIZACIÓN (GITHUB + CLOUDINARY + NETLIFY) -->
     <script>
         const CLAVE_ADMIN = "hadasa2026";
-        const ARCHIVO_CATALOGO = "https://raw.githubusercontent.com/breidyacuna/B-H-Beauty-Vip/main/productos.json?v=" + Date.now();
+        const ARCHIVO_CATALOGO = "productos.json";
 
         // Productos iniciales de respaldo si productos.json aún está vacío
         const productosIniciales = [
@@ -857,26 +857,25 @@
         let catalogo = [];
 
         // 1. Cargar catálogo público desde productos.json alojado en Netlify/GitHub (visible para TODOS)
-        async function inicializarCatalogo() {
-            try {
-                // Evitamos caché con ?v=timestamp para que siempre cargue la última versión publicada
-                const respuesta = await fetch(`${ARCHIVO_CATALOGO}?v=${Date.now()}`);
-                if (respuesta.ok) {
-                    const datosNube = await respuesta.json();
-                    if (Array.isArray(datosNube) && datosNube.length > 0) {
-                        catalogo = datosNube;
-                    } else {
-                        catalogo = [...productosIniciales];
-                    }
-                } else {
-                    catalogo = [...productosIniciales];
-                }
-            } catch (error) {
+                async function inicializarCatalogo() {
+    try {
+        const urlRaw = `https://raw.githubusercontent.com/breidyacuna/B-H-Beauty-Vip/main/${ARCHIVO_CATALOGO}?v=${Date.now()}`;
+        const respuesta = await fetch(urlRaw, { cache: "no-store" });
+        if (respuesta.ok) {
+            const datosNube = await respuesta.json();
+            if (Array.isArray(datosNube) && datosNube.length > 0) {
+                catalogo = datosNube;
+            } else {
                 catalogo = [...productosIniciales];
             }
-            renderizarCatalogo();
+        } else {
+            catalogo = [...productosIniciales];
         }
-
+    } catch (error) {
+        catalogo = [...productosIniciales];
+    }
+    renderizarCatalogo();
+}
         // 2. Renderizar tarjetas de productos
         function renderizarCatalogo() {
             const contenedor = document.getElementById('contenedor-catalogo');
@@ -971,14 +970,7 @@
             await sincronizarDesdeGitHubAPI();
         }
 
-        // Lee siempre la última versión directa de GitHub (sin esperar caché de CDN)
-        async function sincronizarDesdeGitHubAPI() {
-            const cfg = obtenerConfigNube();
-            if (!cfg.user || !cfg.repo || !cfg.token) return;
-            try {
-                const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${ARCHIVO_CATALOGO}`, {
-                    headers: { 'Authorization': `Bearer ${cfg.token}` }
-                });
+       productos.json
                 if (res.ok) {
                     const data = await res.json();
                     const contenidoDecodificado = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
