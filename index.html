@@ -970,7 +970,14 @@
             await sincronizarDesdeGitHubAPI();
         }
 
-       productos.json
+        // Lee siempre la última versión directa de GitHub (sin esperar caché de CDN)
+        async function sincronizarDesdeGitHubAPI() {
+            const cfg = obtenerConfigNube();
+            if (!cfg.user || !cfg.repo || !cfg.token) return;
+            try {
+                const res = await fetch(`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/productos.json`, {
+                    headers: { 'Authorization': `Bearer ${cfg.token}` }
+                });
                 if (res.ok) {
                     const data = await res.json();
                     const contenidoDecodificado = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
@@ -984,7 +991,6 @@
                 console.warn("No se pudo leer directo de GitHub API aún:", err);
             }
         }
-
         // 5. Subir imagen a Cloudinary (Almacenamiento ilimitado en nube)
         async function subirFotoCloudinary(archivo) {
             const cfg = obtenerConfigNube();
@@ -1176,3 +1182,4 @@
     </script>
 </body>
 </html>
+
