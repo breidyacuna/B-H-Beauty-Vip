@@ -1137,7 +1137,7 @@ function renderizarCatalogo() {
         contenedor.appendChild(tarjeta);
     });
 }
-    try {
+   try {
         const urlRaw = `https://raw.githubusercontent.com/breidyacuna/B-H-Beauty-Vip/main/${ARCHIVO_CATALOGO}?v=${Date.now()}`;
         const respuesta = await fetch(urlRaw, { cache: "no-store" });
         if (respuesta.ok) {
