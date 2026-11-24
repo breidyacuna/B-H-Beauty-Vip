@@ -29,6 +29,15 @@
   ],
   "products": [
     {
+      "id": "p-1795550841363",
+      "name": "OVERSIZE",
+      "price": 18,
+      "points": 50,
+      "folderId": "root",
+      "desc": "variedad de colores",
+      "image": "https://res.cloudinary.com/ndzian0b/image/upload/v1795550814/arf0jqs98hxjbfawgjv0.jpg"
+    },
+    {
       "id": "p-1",
       "name": "Sandalias Plataforma con Brillo",
       "price": 26,
@@ -73,5 +82,5 @@
       "points": 150
     }
   ],
-  "updatedAt": "2026-11-24T17:25:52.761Z"
+  "updatedAt": "2026-11-24T20:07:21.971Z"
 }
