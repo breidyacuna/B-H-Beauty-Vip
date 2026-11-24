@@ -1,0 +1,77 @@
+{
+  "logoUrl": "",
+  "folders": [
+    {
+      "id": "f-sandalias",
+      "name": "Sandalias y Zapatillas",
+      "parentId": "root"
+    },
+    {
+      "id": "f-cardigans",
+      "name": "Cárdigans Tejidos",
+      "parentId": "root"
+    },
+    {
+      "id": "f-polos",
+      "name": "Polos y Franelas",
+      "parentId": "root"
+    },
+    {
+      "id": "f-sub-plataformas",
+      "name": "Sandalias de Plataforma",
+      "parentId": "f-sandalias"
+    },
+    {
+      "id": "f-sub-zapatillas",
+      "name": "Zapatillas Casuales",
+      "parentId": "f-sandalias"
+    }
+  ],
+  "products": [
+    {
+      "id": "p-1",
+      "name": "Sandalias Plataforma con Brillo",
+      "price": 26,
+      "points": 50,
+      "folderId": "f-sub-plataformas",
+      "desc": "Sandalias de plataforma con acabado brillante y plantilla cómoda.",
+      "image": "https://placehold.co/500x400/F48FB1/1E0B2B?text=Sandalias+Plataforma+Brillo"
+    },
+    {
+      "id": "p-2",
+      "name": "Zapatillas Urbanas Hadasa",
+      "price": 28,
+      "points": 50,
+      "folderId": "f-sub-zapatillas",
+      "desc": "Zapatillas modernas y ligeras para caminar con estilo todo el día.",
+      "image": "https://placehold.co/500x400/CE93D8/1E0B2B?text=Zapatillas+Urbanas"
+    },
+    {
+      "id": "p-3",
+      "name": "Cárdigan Tejido Fresas / Lazos",
+      "price": 22,
+      "points": 50,
+      "folderId": "f-cardigans",
+      "desc": "Suéter tejido con detalles de fresas o lazos; suave y abrigado.",
+      "image": "https://placehold.co/500x400/F8BBD0/880E4F?text=Cardigan+Tejido"
+    },
+    {
+      "id": "p-4",
+      "name": "Polo Tejido a Rayas & Franela",
+      "price": 18,
+      "points": 50,
+      "folderId": "f-polos",
+      "desc": "Polos tejidos a rayas y franelas casuales fáciles de combinar.",
+      "image": "https://placehold.co/500x400/E1BEE7/4A148C?text=Polo+Tejido+%26+Franela"
+    }
+  ],
+  "clients": [
+    {
+      "fullName": "María Pérez",
+      "phone": "04121234567",
+      "username": "mariaperez",
+      "points": 150
+    }
+  ],
+  "updatedAt": "2026-11-24T17:06:09.162Z"
+}
