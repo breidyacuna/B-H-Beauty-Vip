@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "SHAMPOO EN BARRA DISAAR",
+    "descripcion": "Nutre e hidrata en profundidad fortalece la raíz y caída del cabello con ingredientes naturales",
+    "precio": "7$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795583197/qetl3lkh4nv0vkqih1mg.jpg"
+  },
+  {
     "nombre": "MOLDES DE HIELO",
     "descripcion": "PRÁCTICOS FLEXIBLES Y REUTILIZABLES",
     "precio": "5.80$",
