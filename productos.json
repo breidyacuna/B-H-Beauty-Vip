@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "CHAMPÚ MINOXIDIL",
+    "descripcion": "Ayuda y fortalece el crecimiento de tu cabello",
+    "precio": "12$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795582594/nwnnzjtzipo3ffvbldkz.jpg"
+  },
+  {
     "nombre": "Dr Melaxin LUCE UNA PIEL MÁS SUAVE BRILLOSA Y RENOVADA",
     "descripcion": "Contiene Ácido Kojico, cúrcuma y Niacinamida",
     "precio": "25$",
