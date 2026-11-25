@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Combo Infantil Johnson de 250ml",
+    "descripcion": "Champu, Colonia, crema corporal y talco",
+    "precio": "25$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795581672/jhbe4q1yhjkwxwlbxyjm.jpg"
+  },
+  {
     "nombre": "Crema Nivea",
     "descripcion": "Hidrata y nutre",
     "precio": "12$",
