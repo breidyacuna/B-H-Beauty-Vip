@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "MOLDES DE HIELO",
+    "descripcion": "PRÁCTICOS FLEXIBLES Y REUTILIZABLES",
+    "precio": "5.80$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795583092/ibw9bhfaavcznxmye6ye.jpg"
+  },
+  {
     "nombre": "CREMA ACLARANTE PARA CARA Y CUERPO",
     "descripcion": "Hidrata y mejora la textura de la piel unifica el tono suaviza y da luminosidad",
     "precio": "10$",
