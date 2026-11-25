@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "COMBO CAPILAR kABA DE 1LITRO",
+    "descripcion": "champú, acondicionador, repolizador capilar, perfume capilar, mascarilla capilar, tratamiento capilar",
+    "precio": "55$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795584455/dcm27yzet3rnvfzbo010.jpg"
+  },
+  {
     "nombre": "MASCARILLA DE 1.5 L CALIDAD 1.1 RIZOS EXPLOSIVOS",
     "descripcion": "Hidrata fortalece y repara desde la raíz hasta los puntos.\nEnriquecida con aceites naturales y ayuda a controlar el frizz",
     "precio": "26$",
