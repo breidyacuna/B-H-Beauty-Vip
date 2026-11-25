@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "ESPUMAS LIMPIADORAS FACIALES",
+    "descripcion": "Increíble para retirar el maquillaje",
+    "precio": "10$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795583344/bdzvah0o1refrfjs6xlp.jpg"
+  },
+  {
     "nombre": "SHAMPOO EN BARRA DISAAR",
     "descripcion": "Nutrición profunda y aumenta el grosor de tu cabello",
     "precio": "7$",
