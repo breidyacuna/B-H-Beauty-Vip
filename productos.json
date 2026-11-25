@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "CREMA CLAVADORA CAROWHITE",
+    "descripcion": "Controla el acné es antioxidante y regeneradora aclara y unifica el tono de piel\nPresentación en 120g y 300g",
+    "precio": "9$ y 15$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795583665/wanjlht8ajnizlnmtjt5.jpg"
+  },
+  {
     "nombre": "EXFOLIANTE FACIAL DE ALOE VERA",
     "descripcion": "Enriquecido con 99% de aloe vera puro",
     "precio": "8$",
