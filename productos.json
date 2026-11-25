@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "CREMA ACLARANTE PARA CARA Y CUERPO",
+    "descripcion": "Hidrata y mejora la textura de la piel unifica el tono suaviza y da luminosidad",
+    "precio": "10$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795583005/ny64cqadwx0oqxxfnucg.jpg"
+  },
+  {
     "nombre": "JABON INTIMO ACLARANTE",
     "descripcion": "Aclara y unifica el toro de la piel y te ofrece una limpieza profunda",
     "precio": "7$",
