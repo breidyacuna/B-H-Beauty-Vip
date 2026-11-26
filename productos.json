@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Crema de retinol con Cafeina",
+    "descripcion": "Crema Hidratante",
+    "precio": "10$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795703483/ucr8luza9vbu6sbmkrhp.jpg"
+  },
+  {
     "nombre": "Contorno de Ojos de Retinol con cafeina",
     "descripcion": "Contiene componentes naturales",
     "precio": "5$",
