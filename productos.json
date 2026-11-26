@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Combo SHEGLAM",
+    "descripcion": "Pinza Flor\nRubor\nLiptinit\nMascara de pestañas\npolvo compacto",
+    "precio": "25$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795706154/jk1f7z9y4s2xgdi7cd2a.jpg"
+  },
+  {
     "nombre": "Kit Contra el Acne",
     "descripcion": "💙limpiador, serum y crema",
     "precio": "20$",
