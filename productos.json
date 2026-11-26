@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Combo de Aloe Vera",
+    "descripcion": "Mascarilla, serum y contorno de ojos",
+    "precio": "12$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795702964/oiuzztsssp1kmkumr03v.jpg"
+  },
+  {
     "nombre": "Combo de Skincare",
     "descripcion": "Serum, protector solar y mascarilla",
     "precio": "12$",
