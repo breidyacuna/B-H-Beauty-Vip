@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Limpiador de retinol con cafeina",
+    "descripcion": "Contiene componentes naturales",
+    "precio": "8$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795703581/vobogkt2b3at4r9xajlb.jpg"
+  },
+  {
     "nombre": "Crema de retinol con Cafeina",
     "descripcion": "Crema Hidratante",
     "precio": "10$",
