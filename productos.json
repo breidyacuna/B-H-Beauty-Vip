@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Kir de Acido Kojico",
+    "descripcion": "Skincare completo para tu rutina diaria",
+    "precio": "Consultar precio",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795705415/u38wfeeekg2x6zbqkw8o.jpg"
+  },
+  {
     "nombre": "Set Body Spa",
     "descripcion": "Jabon Liquido\nCrema Corporal\nExfoliante",
     "precio": "18$",
