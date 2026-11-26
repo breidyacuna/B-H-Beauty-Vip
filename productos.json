@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Kit Contra el Acne",
+    "descripcion": "💙limpiador, serum y crema",
+    "precio": "20$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795705894/fbsts0vxgxwvfiotz8l9.jpg"
+  },
+  {
     "nombre": "Shampoo de aceite de oliva",
     "descripcion": "Presentacion de 500ml",
     "precio": "12$",
