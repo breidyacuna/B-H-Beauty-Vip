@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Set Body Spa",
+    "descripcion": "Jabon Liquido\nCrema Corporal\nExfoliante",
+    "precio": "18$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795705286/lrs6puvcegcec3u7yq53.jpg"
+  },
+  {
     "nombre": "Protector solar de Arroz",
     "descripcion": "Protector solar con ceramine",
     "precio": "8$",
