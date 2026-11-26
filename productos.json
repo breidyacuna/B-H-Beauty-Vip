@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Combo de Skincare",
+    "descripcion": "Con protector solar, mascarilla y serum de acido hialuronico.",
+    "precio": "12$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795702719/ijxyzffcpy5puhaqyq3v.jpg"
+  },
+  {
     "nombre": "Fijador de Maquillaje Dolce Bella",
     "descripcion": "Fijador con excelente duración",
     "precio": "15$",
