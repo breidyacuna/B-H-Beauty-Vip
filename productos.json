@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Jabon blanqueador  de arroz",
+    "descripcion": "Zonas sencibles",
+    "precio": "7$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795703744/ff1h8wmd1u37kqwej00v.jpg"
+  },
+  {
     "nombre": "Limpiador de retinol con cafeina",
     "descripcion": "Contiene componentes naturales",
     "precio": "8$",
