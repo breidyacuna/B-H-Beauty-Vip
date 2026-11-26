@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "Kit Antiarrugas e Hidratacion",
+    "descripcion": "Reduce arruga y línea de expresión\nRegenera, repara suaviza la piel\nHidratación profunda y duradera",
+    "precio": "35$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795705553/pyyza8fw0kr5eosfahos.jpg"
+  },
+  {
     "nombre": "Kir de Acido Kojico",
     "descripcion": "Skincare completo para tu rutina diaria",
     "precio": "Consultar precio",
