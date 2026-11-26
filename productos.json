@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "EXFOLIANTE FACIAL Y CORPORAL",
+    "descripcion": "Exfoliante que suaviza e hidrata tu piel",
+    "precio": "10$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795705687/qpnfdiign3bdtvngrouc.jpg"
+  },
+  {
     "nombre": "Kit Antiedad y Firmeza",
     "descripcion": "Para tu rutina completa",
     "precio": "Consultar precio",
