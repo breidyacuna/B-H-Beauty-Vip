@@ -1,5 +1,11 @@
 [
   {
+    "nombre": "PROTECTOR SOLAR",
+    "descripcion": "Con Acido Kojico con rosas",
+    "precio": "6$",
+    "imagen": "https://res.cloudinary.com/ndzian0b/image/upload/f_auto,q_auto,w_800/v1795705024/md0mwte8z4uec8s5rdll.jpg"
+  },
+  {
     "nombre": "PROTECTOR SOLAR HIDRATANTE",
     "descripcion": "UVA/UVB",
     "precio": "5$",
